@@ -36,16 +36,3 @@ Projeto focado em boas práticas de backend, organização em camadas e simulaç
 - Atualizar produto
 - Deletar produto (soft delete opcional)
 
----
-
-## Arquitetura do projeto
-
-app/
-│
-├── auth/           # autenticação JWT e security
-├── users/          # domínio de usuários (router, service, schema)
-├── products/       # CRUD de produtos
-├── db/             # conexão e dependências do banco
-├── models/         # models SQLAlchemy
-├── schemas/        # schemas Pydantic
-└── main.py         # entrypoint FastAPI
