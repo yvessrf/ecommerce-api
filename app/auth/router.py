@@ -7,6 +7,7 @@ from app.users.service import get_user_by_email
 
 from app.auth.security import verify_password
 from app.auth.jwt import create_access_token
+from app.auth.dependencies import get_current_user
 
 router = APIRouter(
     prefix="/auth",
@@ -51,4 +52,12 @@ def login(
     return {
         "access_token": access_token,
         "token_type": "bearer"
+    }
+
+@router.get("/me")
+def get_me(
+    current_user: str = Depends(get_current_user)
+):
+    return {
+        "email": current_user
     }
