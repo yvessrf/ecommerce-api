@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.users.router import router as users_router
 from app.auth.router import router as auth_router
 from app.products.router import router as products_router
+from app.routers import health
 
 
 app = FastAPI(
@@ -12,6 +13,7 @@ app = FastAPI(
 app.include_router(users_router)
 app.include_router(auth_router)
 app.include_router(products_router)
+app.include_router(health.router)
 
 @app.get("/")
 def root():
